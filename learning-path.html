@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Learning Path — Data Analytics 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #16161f;
+    --border: #1e1e2e;
+    --accent: #6ee7b7;
+    --accent2: #818cf8;
+    --accent3: #f472b6;
+    --accent4: #fb923c;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --gold: #fbbf24;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(110,231,183,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .header-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-tag::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-sub {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-section {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .progress-bar-wrap {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .progress-milestones {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .milestone-dot {
+    font-size: 10px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .milestone-dot::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 1px solid var(--muted);
+    transition: all 0.3s;
+  }
+
+  .milestone-dot.done::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  /* PHASES */
+  .phases {
+    padding: 48px 0;
+  }
+
+  .phases-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .phase {
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .phase:hover {
+    border-color: var(--accent);
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    user-select: none;
+    background: var(--surface);
+  }
+
+  .phase-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .phase-meta {
+    flex: 1;
+    padding: 20px 24px;
+  }
+
+  .phase-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .phase-label-pill {
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .pill-free { background: rgba(110,231,183,0.1); color: var(--accent); border: 1px solid rgba(110,231,183,0.2); }
+  .pill-paid { background: rgba(251,191,36,0.1); color: var(--gold); border: 1px solid rgba(251,191,36,0.2); }
+  .pill-mix { background: rgba(129,140,248,0.1); color: var(--accent2); border: 1px solid rgba(129,140,248,0.2); }
+
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .phase-duration {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .phase-toggle {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    color: var(--muted);
+    font-size: 18px;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .phase.open .phase-toggle {
+    transform: rotate(45deg);
+    color: var(--accent);
+  }
+
+  .phase-body {
+    display: none;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .phase.open .phase-body {
+    display: block;
+  }
+
+  /* TOPICS inside phase */
+  .topic {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .topic:last-child {
+    border-bottom: none;
+  }
+
+  .topic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .topic-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--muted);
+    border-radius: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .topic-check.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(110,231,183,0.3);
+  }
+
+  .topic-check.checked::after {
+    content: '✓';
+    font-size: 10px;
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .topic-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .topic-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding-left: 26px;
+  }
+
+  .resources {
+    padding-left: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .resource {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .resource-icon {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .resource a {
+    color: var(--accent2);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .resource a:hover {
+    border-bottom-color: var(--accent2);
+  }
+
+  .resource-tag {
+    padding: 1px 6px;
+    border-radius: 20px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .tag-yt { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+  .tag-free { background: rgba(110,231,183,0.1); color: var(--accent); border: 1px solid rgba(110,231,183,0.2); }
+  .tag-paid { background: rgba(251,191,36,0.1); color: var(--gold); border: 1px solid rgba(251,191,36,0.2); }
+  .tag-cert { background: rgba(244,114,182,0.1); color: var(--accent3); border: 1px solid rgba(244,114,182,0.2); }
+  .tag-doc { background: rgba(129,140,248,0.1); color: var(--accent2); border: 1px solid rgba(129,140,248,0.2); }
+
+  .topic-estimate {
+    text-align: right;
+  }
+
+  .estimate-weeks {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .estimate-label {
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* SKILL TREE */
+  .skills-section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .skill-card:hover {
+    border-color: var(--muted);
+    transform: translateY(-2px);
+  }
+
+  .skill-card.mastered {
+    border-color: var(--accent);
+    background: rgba(110,231,183,0.04);
+  }
+
+  .skill-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .skill-level {
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+
+  .skill-level-fill {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 1s ease;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    gap: 16px;
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  .total-cost {
+    text-align: right;
+  }
+
+  .total-cost-val {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .total-cost-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Fade in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .phase {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .phase:nth-child(1) { animation-delay: 0.1s; }
+  .phase:nth-child(2) { animation-delay: 0.2s; }
+  .phase:nth-child(3) { animation-delay: 0.3s; }
+  .phase:nth-child(4) { animation-delay: 0.4s; }
+  .phase:nth-child(5) { animation-delay: 0.5s; }
+  .phase:nth-child(6) { animation-delay: 0.6s; }
+
+  .checked-topic .topic-name {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  /* PROJECT CARD */
+  .project-card {
+    margin: 0;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(110,231,183,0.04), rgba(129,140,248,0.04));
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+  }
+
+  .project-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-label::after {
+    content: '— PROYECTO DE CIERRE';
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-check {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .project-check.checked {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(110,231,183,0.4);
+  }
+
+  .project-check.checked::after {
+    content: '✓';
+    font-size: 10px;
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .project-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-left: 26px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding-left: 26px;
+    margin-top: 10px;
+  }
+
+  .project-tag {
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(110,231,183,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(110,231,183,0.15);
+  }
+
+  @media (max-width: 600px) {
+    .header-stats { gap: 20px; }
+    .topic { grid-template-columns: 1fr; }
+    .topic-estimate { display: none; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .total-cost { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-tag">Learning Path — Data Analytics 2025–2026</div>
+    <h1>De Analista<br>a <em>Data Engineer</em><br>con AI</h1>
+    <p class="header-sub">Ruta personalizada para dominar Python, SQL avanzado, Databricks y AI aplicada al análisis de datos. Basada en tus habilidades actuales en SQL, Tableau y Power BI.</p>
+    <div class="header-stats">
+      <div class="stat">
+        <span class="stat-val">12</span>
+        <span class="stat-label">Meses</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">6</span>
+        <span class="stat-label">Fases</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val" id="completedCount">0</span>
+        <span class="stat-label">Completados</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">~$200</span>
+        <span class="stat-label">Costo estimado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-section">
+    <div class="progress-header">
+      <span>Progreso general</span>
+      <span id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+    <div class="progress-milestones" id="milestones">
+      <span class="milestone-dot" data-phase="0">Fase 1</span>
+      <span class="milestone-dot" data-phase="1">Fase 2</span>
+      <span class="milestone-dot" data-phase="2">Fase 3</span>
+      <span class="milestone-dot" data-phase="3">Fase 4</span>
+      <span class="milestone-dot" data-phase="4">Fase 5</span>
+      <span class="milestone-dot" data-phase="5">Fase 6</span>
+    </div>
+  </div>
+
+  <!-- PHASES -->
+  <div class="phases">
+    <p class="phases-title">— Ruta de aprendizaje</p>
+
+    <!-- ===== PHASE 1: Python ===== -->
+    <div class="phase" id="phase-0">
+      <div class="phase-header" onclick="togglePhase('phase-0')">
+        <div class="phase-num">1</div>
+        <div class="phase-meta">
+          <div class="phase-label">Meses 1–2 <span class="phase-label-pill pill-free">Gratis</span></div>
+          <div class="phase-title">Python para Análisis de Datos</div>
+          <div class="phase-duration">Fundamentos sólidos desde cero hasta pandas & numpy</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Python Básico para Datos</span>
+            </div>
+            <p class="topic-desc">Variables, listas, dicts, loops, funciones, comprehensions. Enfoque en manipulación de datos, no en software engineering.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank">freeCodeCamp — Python Full Course (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/playlist?list=PLeo1K3hjS3uv5U-Lmlnucd7gqF-3ehIh4" target="_blank">Codebasics — Python for Data Science (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/python" target="_blank">Kaggle — Python (micro-curso + certificado)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Pandas & NumPy</span>
+            </div>
+            <p class="topic-desc">DataFrames, series, merges, groupby, pivot tables, limpieza de datos. Es básicamente Excel/SQL pero con superpoderes en Python.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=vmEHCJofslg" target="_blank">Keith Galli — Pandas Complete Intro (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/pandas" target="_blank">Kaggle — Pandas (certificado gratuito)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/" target="_blank">Documentación oficial de Pandas</a><span class="resource-tag tag-doc">Docs</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Visualización con Python</span>
+            </div>
+            <p class="topic-desc">Matplotlib, Seaborn y Plotly. Visualización programática que complementa tu conocimiento de Tableau y Power BI.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank">freeCodeCamp — Matplotlib & Seaborn (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/data-visualization" target="_blank">Kaggle — Data Visualization (certificado)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Análisis Exploratorio de Ventas con Python
+          </div>
+          <p class="project-desc">Descarga un dataset de ventas de Kaggle (ej. Superstore o Brazilian E-Commerce). Limpia los datos con Pandas, calcula KPIs como revenue por categoría, tasa de retorno y ticket promedio. Genera un reporte visual con Seaborn/Plotly. El objetivo es replicar en Python algo que ya sabes hacer en Excel o Tableau.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">Seaborn</span>
+            <span class="project-tag">EDA</span>
+            <span class="project-tag">~1 semana</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PHASE 2: SQL INTERMEDIO ===== -->
+    <div class="phase" id="phase-1">
+      <div class="phase-header" onclick="togglePhase('phase-1')">
+        <div class="phase-num">2</div>
+        <div class="phase-meta">
+          <div class="phase-label">Mes 3 <span class="phase-label-pill pill-free">Gratis</span></div>
+          <div class="phase-title">SQL Intermedio — Fundamento Sólido</div>
+          <div class="phase-duration">JOINs complejos, subqueries, agregaciones, modelado básico</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">JOINs Avanzados & Subqueries</span>
+            </div>
+            <p class="topic-desc">INNER, LEFT, RIGHT, FULL OUTER, CROSS JOIN y SELF JOIN con casos reales. Subqueries correlacionadas vs no correlacionadas. EXISTS vs IN. Cuándo cada uno es la herramienta correcta.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=9URM1_2S0ho" target="_blank">techTFQ — SQL JOINs explicados a fondo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://sqlzoo.net/wiki/SQL_Tutorial" target="_blank">SQLZoo — Práctica interactiva de JOINs</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Agregaciones & Agrupaciones</span>
+            </div>
+            <p class="topic-desc">GROUP BY con HAVING, ROLLUP, CUBE y GROUPING SETS. Diferencias clave entre WHERE y HAVING. Funciones de agregación: COUNT DISTINCT, PERCENTILE_CONT, MODE, MEDIAN.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=Lz9ZRJYnr0Y" target="_blank">Ankit Bansal — GROUP BY avanzado (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://mode.com/sql-tutorial/sql-aggregate-functions/" target="_blank">Mode Analytics — Aggregate Functions</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">CTEs & Queries Complejas</span>
+            </div>
+            <p class="topic-desc">Common Table Expressions (WITH clause) para organizar lógica compleja. CTEs múltiples encadenadas. Diferencia entre CTE vs subquery vs vista temporal. Cuándo usar cada uno.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=K1WeoKxLZ5o" target="_blank">techTFQ — CTEs en SQL (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://mode.com/sql-tutorial/sql-with-as/" target="_blank">Mode Analytics — CTEs Tutorial</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Modelado de Datos Básico</span>
+            </div>
+            <p class="topic-desc">Star schema vs snowflake schema. Tablas de hechos y dimensiones. Normalización y desnormalización. Diseñar un modelo simple de datos para análisis. Fundamento para entender dbt y Databricks.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=hQ_VCCaHdcU" target="_blank">Kahan Data Solutions — Star Schema explicado (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=dH625Wz0a2g" target="_blank">Alex The Analyst — Data Modeling para analistas</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Dashboard de Negocio con SQL Puro
+          </div>
+          <p class="project-desc">Usa un dataset público (ej. Northwind o AdventureWorks). Modela un star schema simple con tablas de hechos y dimensiones. Escribe queries con JOINs, CTEs y agregaciones para responder 5 preguntas de negocio reales: ¿Cuál es el producto más rentable? ¿Cuál es el cliente con mayor LTV? ¿Cuál es el mes con mayor crecimiento YoY? Exporta los resultados a Tableau/Power BI.</p>
+          <div class="project-tags">
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">CTEs</span>
+            <span class="project-tag">JOINs</span>
+            <span class="project-tag">Star Schema</span>
+            <span class="project-tag">~1 semana</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PHASE 3: SQL AVANZADO + DATABRICKS ===== -->
+    <div class="phase" id="phase-2">
+      <div class="phase-header" onclick="togglePhase('phase-2')">
+        <div class="phase-num">3</div>
+        <div class="phase-meta">
+          <div class="phase-label">Meses 4–5 <span class="phase-label-pill pill-mix">Gratis + Pago</span></div>
+          <div class="phase-title">SQL Avanzado & Databricks</div>
+          <div class="phase-duration">Window functions, optimización, Spark SQL y la plataforma Databricks</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Window Functions</span>
+            </div>
+            <p class="topic-desc">ROW_NUMBER, RANK, DENSE_RANK, NTILE. LAG y LEAD para comparaciones temporales. FIRST_VALUE, LAST_VALUE, NTH_VALUE. OVER() con PARTITION BY y ORDER BY. El tema más pedido en entrevistas técnicas de datos.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=Ww71knvhQ-s" target="_blank">Ankit Bansal — Window Functions Masterclass (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://leetcode.com/studyplan/top-sql-50/" target="_blank">LeetCode — Top SQL 50 (práctica real)</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/@techTFQ" target="_blank">techTFQ — SQL Interview Queries (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Optimización de Queries</span>
+            </div>
+            <p class="topic-desc">Query execution plans, índices, particionamiento, estadísticas del optimizador. Cómo diagnosticar queries lentas. EXPLAIN ANALYZE. Diferencias clave al optimizar en bases de datos columnar (como Databricks) vs transaccional.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=BHwzDmr6d7s" target="_blank">Database Star — SQL Query Optimization (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://use-the-index-luke.com/" target="_blank">Use The Index, Luke — Guía de índices SQL</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Fundamentos de Databricks</span>
+            </div>
+            <p class="topic-desc">La plataforma, Notebooks, Clusters, Unity Catalog, Delta Lake. Databricks SQL para analistas. Certificación oficial gratuita de Databricks.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/training/lakehouse-fundamentals" target="_blank">Databricks — Lakehouse Fundamentals (cert. gratis)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=mOBrIU0g56Y" target="_blank">Adam Marczak — Databricks Tutorial (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://community.databricks.com/" target="_blank">Databricks Community Edition (gratuita para practicar)</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Apache Spark & PySpark</span>
+            </div>
+            <p class="topic-desc">Procesamiento distribuido, DataFrames de Spark, transformaciones lazy, Spark SQL. El motor detrás de Databricks. Cómo escalar código Python a millones de registros.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=S2MUhGA3lEw" target="_blank">Codebasics — PySpark Tutorial Completo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/learn/introduction-to-big-data-with-spark-hadoop" target="_blank">Coursera — Intro Big Data with Spark (IBM, audit gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Análisis de Cohortes con Window Functions en Databricks
+          </div>
+          <p class="project-desc">Sube un dataset de transacciones a Databricks Community Edition. Usa window functions para calcular retención de cohortes mes a mes (un análisis clásico de e-commerce). Identifica el mes de primera compra de cada usuario con FIRST_VALUE, luego calcula cuántos regresan en meses posteriores con LAG/LEAD. Visualiza la matriz de cohortes en un notebook de Databricks.</p>
+          <div class="project-tags">
+            <span class="project-tag">Window Functions</span>
+            <span class="project-tag">Databricks</span>
+            <span class="project-tag">Cohort Analysis</span>
+            <span class="project-tag">Spark SQL</span>
+            <span class="project-tag">~1.5 semanas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PHASE 4: DATA ENGINEERING ===== -->
+    <div class="phase" id="phase-3">
+      <div class="phase-header" onclick="togglePhase('phase-3')">
+        <div class="phase-num">4</div>
+        <div class="phase-meta">
+          <div class="phase-label">Meses 6–8 <span class="phase-label-pill pill-paid">Inversión recomendada</span></div>
+          <div class="phase-title">Data Engineering Moderno</div>
+          <div class="phase-duration">dbt, Delta Lake, pipelines y certificación Databricks</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">dbt (Data Build Tool)</span>
+            </div>
+            <p class="topic-desc">Transformaciones SQL modulares, tests automáticos, documentación, linaje de datos. La herramienta más adoptada en el stack moderno de datos. Se integra directamente con Databricks.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://courses.getdbt.com/courses/fundamentals" target="_blank">dbt Labs — dbt Fundamentals (certificado gratuito)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=toSAAgLUHuk" target="_blank">Jayzern — dbt Tutorial Completo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Delta Lake & Data Lakehouse</span>
+            </div>
+            <p class="topic-desc">ACID transactions en data lakes, versioning, time travel, merge operations (UPSERT). La base de la arquitectura Lakehouse. Medallion architecture: Bronze → Silver → Gold.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/training/delta-lake-fundamentals" target="_blank">Databricks — Delta Lake Fundamentals (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=BMO90DWnLNc" target="_blank">Advancing Analytics — Delta Lake Deep Dive</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Git & GitHub para Datos</span>
+            </div>
+            <p class="topic-desc">Control de versiones para proyectos de datos. Pull requests, branches, .gitignore para notebooks. GitHub Actions básico. Cómo versionar modelos dbt y notebooks de Databricks.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank">freeCodeCamp — Git & GitHub (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Certificación Databricks Associate</span>
+            </div>
+            <p class="topic-desc">Databricks Certified Data Engineer Associate. Reconocida en el mercado, valida tu conocimiento de Spark, Delta Lake y pipelines. La inversión principal de todo el learning path.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/certification/data-engineer-associate" target="_blank">Databricks — Data Engineer Associate Exam (~$200)</a><span class="resource-tag tag-paid">$200</span><span class="resource-tag tag-cert">Cert</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=iF25bM0HWYE" target="_blank">Prep: Databricks Associate Study Guide (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Pipeline Medallion con dbt + Delta Lake
+          </div>
+          <p class="project-desc">Construye un pipeline completo en Databricks Community Edition usando la arquitectura Medallion. Bronze: ingesta datos raw de un CSV público (ej. NYC Taxi o ventas). Silver: limpieza y transformaciones con PySpark + dbt. Gold: métricas agregadas listas para análisis. Versiona todo en GitHub. El pipeline debe ser reproducible con un solo comando.</p>
+          <div class="project-tags">
+            <span class="project-tag">dbt</span>
+            <span class="project-tag">Delta Lake</span>
+            <span class="project-tag">PySpark</span>
+            <span class="project-tag">Medallion</span>
+            <span class="project-tag">GitHub</span>
+            <span class="project-tag">~2 semanas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PHASE 5: AI ===== -->
+    <div class="phase" id="phase-4">
+      <div class="phase-header" onclick="togglePhase('phase-4')">
+        <div class="phase-num">5</div>
+        <div class="phase-meta">
+          <div class="phase-label">Meses 9–10 <span class="phase-label-pill pill-mix">Gratis + Pago</span></div>
+          <div class="phase-title">AI Aplicada al Análisis de Datos</div>
+          <div class="phase-duration">ML básico, LLMs para análisis, Databricks AI & MLflow</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Machine Learning para Analistas</span>
+            </div>
+            <p class="topic-desc">Regresión, clasificación, clustering aplicados a datos de negocio con scikit-learn. Sin matemáticas profundas: enfoque en cuándo usar cada modelo y cómo interpretar resultados para stakeholders.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">Kaggle — Intro to ML (certificado gratis)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/intermediate-machine-learning" target="_blank">Kaggle — Intermediate ML (certificado gratis)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=7eh4d6sabA0" target="_blank">Patrick Loeber — ML con scikit-learn (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">LLMs & AI para Análisis de Datos</span>
+            </div>
+            <p class="topic-desc">Usar LLMs (GPT, Claude) para generar SQL/Python, analizar datasets con lenguaje natural, crear reportes automáticos y construir agentes de análisis. Prompt engineering para analistas de datos.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/" target="_blank">DeepLearning.AI — Prompt Engineering (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/" target="_blank">DeepLearning.AI — LangChain (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=sTeoEFzVNSc" target="_blank">Alejandro AO — AI Data Analyst Agent (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Databricks AI & MLflow</span>
+            </div>
+            <p class="topic-desc">Databricks AutoML, Feature Store, MLflow para tracking de experimentos y reproducibilidad, Model Registry. Cómo integrar modelos de ML dentro de pipelines de datos en Databricks.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/training/machine-learning-foundations" target="_blank">Databricks — ML Foundations (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=JApPzAnbfPI" target="_blank">Databricks — MLflow Tutorial (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Agente de Análisis con LLM + Modelo Predictivo
+          </div>
+          <p class="project-desc">Combina un modelo de ML (ej. predicción de churn o forecast de demanda) con un LLM que interprete los resultados en lenguaje natural. Registra el experimento en MLflow. El agente debe poder responder preguntas como "¿Qué clientes tienen mayor riesgo de abandono este mes?" consultando los datos de Databricks y generando una explicación automática.</p>
+          <div class="project-tags">
+            <span class="project-tag">scikit-learn</span>
+            <span class="project-tag">MLflow</span>
+            <span class="project-tag">LangChain</span>
+            <span class="project-tag">Databricks</span>
+            <span class="project-tag">~2 semanas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== PHASE 6: PORTFOLIO ===== -->
+    <div class="phase" id="phase-5">
+      <div class="phase-header" onclick="togglePhase('phase-5')">
+        <div class="phase-num">6</div>
+        <div class="phase-meta">
+          <div class="phase-label">Meses 11–12 <span class="phase-label-pill pill-free">Portfolio</span></div>
+          <div class="phase-title">Proyecto Final & Consolidación</div>
+          <div class="phase-duration">End-to-end real, GitHub público y certificaciones finales</div>
+        </div>
+        <div class="phase-toggle">+</div>
+      </div>
+      <div class="phase-body">
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Proyecto Capstone End-to-End</span>
+            </div>
+            <p class="topic-desc">Pipeline completo en Databricks: ingestión raw → Bronze/Silver/Gold con Delta Lake → transformaciones con dbt → análisis con Python → modelo de ML con MLflow → dashboard en Power BI/Tableau. Todo versionado en GitHub con documentación.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/datasets" target="_blank">Kaggle Datasets — Elige un dataset con significado para ti</a><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=GzALePeIRHQ" target="_blank">Darshil Parmar — Data Engineering Project E2E (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">5</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <div class="topic">
+          <div>
+            <div class="topic-header">
+              <div class="topic-check" onclick="toggleCheck(this)"></div>
+              <span class="topic-name">Certificaciones de Cierre</span>
+            </div>
+            <p class="topic-desc">Google Data Analytics Professional Certificate como credencial reconocida para LinkedIn. Opcional pero añade peso a tu perfil si buscas nuevas oportunidades laborales.</p>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank">Google Data Analytics Certificate (Coursera ~$50/mes)</a><span class="resource-tag tag-paid">~$50</span><span class="resource-tag tag-cert">Cert</span></div>
+              <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/professional-certificates/ibm-data-analyst" target="_blank">IBM Data Analyst Professional Certificate (audit gratis)</a><span class="resource-tag tag-free">Gratis*</span></div>
+            </div>
+          </div>
+          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="project-card">
+          <div class="project-label"></div>
+          <div class="project-title">
+            <div class="project-check" onclick="toggleProjectCheck(this)"></div>
+            Portfolio GitHub Público + README Profesional
+          </div>
+          <p class="project-desc">Publica los mejores 3 proyectos del learning path en GitHub con README detallados: arquitectura del pipeline, decisiones técnicas, screenshots de resultados y cómo reproducirlo. Actualiza tu LinkedIn con las certificaciones obtenidas: Kaggle (×5+), Databricks Fundamentals, dbt Fundamentals, Databricks Associate. Tu GitHub será tu CV técnico.</p>
+          <div class="project-tags">
+            <span class="project-tag">GitHub</span>
+            <span class="project-tag">Documentación</span>
+            <span class="project-tag">LinkedIn</span>
+            <span class="project-tag">Portfolio</span>
+            <span class="project-tag">~2 semanas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /phases -->
+
+  <!-- SKILL TREE -->
+  <div class="skills-section">
+    <p class="section-title">— Stack de habilidades objetivo</p>
+    <div class="skills-grid">
+      <div class="skill-card mastered">
+        <span class="skill-icon">🗄️</span>
+        <div class="skill-name">SQL Básico / Intermedio</div>
+        <div style="font-size:10px;color:var(--accent);margin-top:4px;">Ya dominas esto ✓</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:80%;background:var(--accent);"></div></div>
+      </div>
+      <div class="skill-card mastered">
+        <span class="skill-icon">📊</span>
+        <div class="skill-name">Tableau / Power BI</div>
+        <div style="font-size:10px;color:var(--accent);margin-top:4px;">Ya dominas esto ✓</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:75%;background:var(--accent);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🐍</span>
+        <div class="skill-name">Python & Pandas</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 1</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent2);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">⚡</span>
+        <div class="skill-name">SQL Avanzado</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 2</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent2);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🧱</span>
+        <div class="skill-name">Databricks</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fases 2 y 3</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent3);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🔥</span>
+        <div class="skill-name">Apache Spark / PySpark</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 2</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent2);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🌊</span>
+        <div class="skill-name">Delta Lake</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 3</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent3);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🔧</span>
+        <div class="skill-name">dbt</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 3</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent3);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🤖</span>
+        <div class="skill-name">ML & AI Aplicada</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 4</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent4);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">💬</span>
+        <div class="skill-name">LLMs para Análisis</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 4</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent4);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🐙</span>
+        <div class="skill-name">Git & GitHub</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 5</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent);"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">📁</span>
+        <div class="skill-name">Portfolio de Proyectos</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px;">Fase 5</div>
+        <div class="skill-level"><div class="skill-level-fill" style="width:0%;background:var(--accent);"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-note">
+      Ruta de 12 meses diseñada para ~8–10 hrs/semana. Cada fase incluye un proyecto de cierre para asentar los conceptos antes de avanzar. Los proyectos cuentan en tu barra de progreso. Los recursos de Kaggle son especialmente recomendados por sus certificados gratuitos e inmediatos.
+    </div>
+    <div class="total-cost">
+      <div class="total-cost-val">~$200</div>
+      <div class="total-cost-label">Inversión total estimada</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Solo el examen Databricks Associate</div>
+    </div>
+  </footer>
+
+</div><!-- /container -->
+
+<script>
+  const STORAGE_KEY = 'learningPathChecked_v2';
+  const PROJ_KEY = 'learningPathProjects_v2';
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+  }
+  function saveState(indices) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(indices)); } catch {}
+  }
+  function loadProjects() {
+    try { return JSON.parse(localStorage.getItem(PROJ_KEY) || '[]'); } catch { return []; }
+  }
+  function saveProjects(indices) {
+    try { localStorage.setItem(PROJ_KEY, JSON.stringify(indices)); } catch {}
+  }
+
+  const allChecks = document.querySelectorAll('.topic-check');
+  const allProjectChecks = document.querySelectorAll('.project-check');
+  const totalTopics = allChecks.length + allProjectChecks.length;
+
+  allChecks.forEach((el, i) => el.dataset.idx = i);
+  allProjectChecks.forEach((el, i) => el.dataset.pidx = i);
+
+  // Restore topics
+  const saved = loadState();
+  saved.forEach(idx => { const el = allChecks[idx]; if (el) markChecked(el); });
+
+  // Restore projects
+  const savedProj = loadProjects();
+  savedProj.forEach(idx => { const el = allProjectChecks[idx]; if (el) el.classList.add('checked'); });
+
+  updateProgress();
+
+  function markChecked(el) {
+    el.classList.add('checked');
+    el.closest('.topic')?.querySelector('.topic-name')?.classList.add('checked-topic');
+  }
+  function markUnchecked(el) {
+    el.classList.remove('checked');
+    el.closest('.topic')?.querySelector('.topic-name')?.classList.remove('checked-topic');
+  }
+
+  function toggleCheck(el) {
+    el.classList.contains('checked') ? markUnchecked(el) : markChecked(el);
+    const checked = [];
+    allChecks.forEach((c, i) => { if (c.classList.contains('checked')) checked.push(i); });
+    saveState(checked);
+    updateProgress();
+  }
+
+  function toggleProjectCheck(el) {
+    el.classList.toggle('checked');
+    const checked = [];
+    allProjectChecks.forEach((c, i) => { if (c.classList.contains('checked')) checked.push(i); });
+    saveProjects(checked);
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const doneTopic = document.querySelectorAll('.topic-check.checked').length;
+    const doneProj = document.querySelectorAll('.project-check.checked').length;
+    const done = doneTopic + doneProj;
+    const pct = Math.round((done / totalTopics) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+    document.getElementById('completedCount').textContent = done;
+
+    const phases = ['phase-0','phase-1','phase-2','phase-3','phase-4','phase-5'];
+    phases.forEach((id, pi) => {
+      const phase = document.getElementById(id);
+      if (!phase) return;
+      const checks = phase.querySelectorAll('.topic-check');
+      const projChecks = phase.querySelectorAll('.project-check');
+      const total = checks.length + projChecks.length;
+      const doneInPhase = phase.querySelectorAll('.topic-check.checked').length + phase.querySelectorAll('.project-check.checked').length;
+      const dot = document.querySelector(`.milestone-dot[data-phase="${pi}"]`);
+      if (dot) dot.classList.toggle('done', total > 0 && doneInPhase === total);
+    });
+  }
+
+  function togglePhase(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  setTimeout(() => { updateProgress(); }, 300);
+</script>
+
+</body>
+</html>
