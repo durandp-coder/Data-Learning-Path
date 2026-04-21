@@ -403,6 +403,19 @@
   .tag-paid { background: rgba(251,191,36,0.1); color: var(--gold); border: 1px solid rgba(251,191,36,0.2); }
   .tag-cert { background: rgba(244,114,182,0.1); color: var(--accent3); border: 1px solid rgba(244,114,182,0.2); }
   .tag-doc { background: rgba(129,140,248,0.1); color: var(--accent2); border: 1px solid rgba(129,140,248,0.2); }
+  .tag-read { background: rgba(251,191,36,0.08); color: #fcd34d; border: 1px solid rgba(251,191,36,0.2); }
+
+  .readings-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 12px 0 6px 26px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .readings-label::before { content: '📖'; font-size: 10px; }
 
   .topic-estimate {
     text-align: right;
@@ -732,6 +745,12 @@
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/playlist?list=PLeo1K3hjS3uv5U-Lmlnucd7gqF-3ehIh4" target="_blank">Codebasics — Python for Data Science (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/python" target="_blank">Kaggle — Python (micro-curso + certificado)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://automatetheboringstuff.com/" target="_blank">Automate the Boring Stuff with Python — Al Sweigart</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis online</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://docs.python.org/3/tutorial/" target="_blank">The Python Tutorial — documentación oficial</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://realpython.com/python-data-types/" target="_blank">Real Python — Python Data Types (artículo)</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
           </div>
           <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
         </div>
@@ -748,26 +767,24 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/pandas" target="_blank">Kaggle — Pandas (certificado gratuito)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/" target="_blank">Documentación oficial de Pandas</a><span class="resource-tag tag-doc">Docs</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Visualización con Python</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://wesmckinney.com/book/" target="_blank">Python for Data Analysis — Wes McKinney (creador de Pandas)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis online</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://realpython.com/pandas-dataframe/" target="_blank">Real Python — Pandas DataFrame: guía completa</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://numpy.org/doc/stable/user/absolute_beginners.html" target="_blank">NumPy — Absolute Beginners Guide (oficial)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Matplotlib, Seaborn y Plotly. Visualización programática que complementa tu conocimiento de Tableau y Power BI.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank">freeCodeCamp — Matplotlib & Seaborn (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/data-visualization" target="_blank">Kaggle — Data Visualization (certificado)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <!-- PROJECT 1 -->
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.storytellingwithdata.com/books" target="_blank">Storytelling with Data — Cole Nussbaumer Knaflic</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-paid">~$25</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://matplotlib.org/stable/tutorials/index.html" target="_blank">Matplotlib — Tutorials oficiales</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://plotly.com/python/getting-started/" target="_blank">Plotly — Getting Started (documentación interactiva)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
         <div class="project-card">
           <div class="project-label"></div>
           <div class="project-title">
@@ -811,56 +828,46 @@
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=9URM1_2S0ho" target="_blank">techTFQ — SQL JOINs explicados a fondo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://sqlzoo.net/wiki/SQL_Tutorial" target="_blank">SQLZoo — Práctica interactiva de JOINs</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Agregaciones & Agrupaciones</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.sqlstyle.guide/" target="_blank">SQL Style Guide — buenas prácticas de escritura</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://mode.com/sql-tutorial/sql-joins/" target="_blank">Mode Analytics — Visual Guide to SQL JOINs</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.amazon.com/Learning-SQL-Generate-Manipulate-Retrieve/dp/1492057612" target="_blank">Learning SQL — Alan Beaulieu (O'Reilly, cap. JOINs)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-paid">~$40</span></div>
+            </div>
             </div>
             <p class="topic-desc">GROUP BY con HAVING, ROLLUP, CUBE y GROUPING SETS. Diferencias clave entre WHERE y HAVING. Funciones de agregación: COUNT DISTINCT, PERCENTILE_CONT, MODE, MEDIAN.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=Lz9ZRJYnr0Y" target="_blank">Ankit Bansal — GROUP BY avanzado (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://mode.com/sql-tutorial/sql-aggregate-functions/" target="_blank">Mode Analytics — Aggregate Functions</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">CTEs & Queries Complejas</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://mode.com/sql-tutorial/sql-group-by/" target="_blank">Mode Analytics — GROUP BY en profundidad</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/" target="_blank">PostgreSQL Tutorial — Aggregate Functions completas</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Common Table Expressions (WITH clause) para organizar lógica compleja. CTEs múltiples encadenadas. Diferencia entre CTE vs subquery vs vista temporal. Cuándo usar cada uno.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=K1WeoKxLZ5o" target="_blank">techTFQ — CTEs en SQL (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://mode.com/sql-tutorial/sql-with-as/" target="_blank">Mode Analytics — CTEs Tutorial</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Modelado de Datos Básico</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.essentialsql.com/introduction-common-table-expressions-ctes/" target="_blank">Essential SQL — Introducción a CTEs</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/sql-for-data-scientists-in-6-days-a-complete-guide-to-sql-for-data-analysis-9a7c7cb9f87e" target="_blank">Towards Data Science — SQL completo para analistas</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Star schema vs snowflake schema. Tablas de hechos y dimensiones. Normalización y desnormalización. Diseñar un modelo simple de datos para análisis. Fundamento para entender dbt y Databricks.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=hQ_VCCaHdcU" target="_blank">Kahan Data Solutions — Star Schema explicado (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=dH625Wz0a2g" target="_blank">Alex The Analyst — Data Modeling para analistas</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <!-- PROJECT 2 -->
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/" target="_blank">Kimball Group — Dimensional Modeling Techniques (la referencia)</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802" target="_blank">The Data Warehouse Toolkit — Kimball & Ross (libro clásico)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-paid">~$45</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://docs.getdbt.com/terms/dimensional-modeling" target="_blank">dbt — Dimensional Modeling explicado</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
         <div class="project-card">
           <div class="project-label"></div>
           <div class="project-title">
@@ -905,30 +912,24 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://leetcode.com/studyplan/top-sql-50/" target="_blank">LeetCode — Top SQL 50 (práctica real)</a><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/@techTFQ" target="_blank">techTFQ — SQL Interview Queries (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Optimización de Queries</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.postgresql.org/docs/current/tutorial-window.html" target="_blank">PostgreSQL — Window Functions Tutorial (oficial)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/a-guide-to-advanced-sql-window-functions-f63f2642cbf9" target="_blank">Towards Data Science — Guía avanzada de Window Functions</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.windowfunctions.com/" target="_blank">windowfunctions.com — Práctica interactiva dedicada</a><span class="resource-tag tag-read">Práctica</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Query execution plans, índices, particionamiento, estadísticas del optimizador. Cómo diagnosticar queries lentas. EXPLAIN ANALYZE. Diferencias clave al optimizar en bases de datos columnar (como Databricks) vs transaccional.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=BHwzDmr6d7s" target="_blank">Database Star — SQL Query Optimization (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://use-the-index-luke.com/" target="_blank">Use The Index, Luke — Guía de índices SQL</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Fundamentos de Databricks</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://use-the-index-luke.com/sql/table-of-contents" target="_blank">Use The Index, Luke — libro completo online (gratis)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/blog/2022/11/14/introducing-databricks-sql-query-optimization.html" target="_blank">Databricks Blog — SQL Query Optimization en Lakehouse</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/how-to-analyze-a-query-plan-in-spark-c5bf4022dd5b" target="_blank">Towards Data Science — Cómo leer un Query Plan en Spark</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">La plataforma, Notebooks, Clusters, Unity Catalog, Delta Lake. Databricks SQL para analistas. Certificación oficial gratuita de Databricks.</p>
             <div class="resources">
@@ -936,26 +937,24 @@
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=mOBrIU0g56Y" target="_blank">Adam Marczak — Databricks Tutorial (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://community.databricks.com/" target="_blank">Databricks Community Edition (gratuita para practicar)</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Apache Spark & PySpark</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/wp-content/uploads/2020/12/cidr_lakehouse.pdf" target="_blank">Lakehouse: A New Generation of Open Platforms (paper original)</a><span class="resource-tag tag-read">Paper</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://docs.databricks.com/en/introduction/index.html" target="_blank">Databricks Docs — Introducción oficial a la plataforma</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/blog/2022/06/24/data-lakehouse-explained.html" target="_blank">Databricks Blog — Data Lakehouse explicado</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Procesamiento distribuido, DataFrames de Spark, transformaciones lazy, Spark SQL. El motor detrás de Databricks. Cómo escalar código Python a millones de registros.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=S2MUhGA3lEw" target="_blank">Codebasics — PySpark Tutorial Completo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/learn/introduction-to-big-data-with-spark-hadoop" target="_blank">Coursera — Intro Big Data with Spark (IBM, audit gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <!-- PROJECT 3 -->
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://pages.databricks.com/rs/094-YMS-629/images/LearningSpark2.0.pdf" target="_blank">Learning Spark 2.0 — Jules Damji et al. (PDF gratuito de Databricks)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://spark.apache.org/docs/latest/sql-programming-guide.html" target="_blank">Apache Spark — SQL Programming Guide oficial</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/pyspark-and-sparksql-basics-6cb4bf967e53" target="_blank">Towards Data Science — PySpark y SparkSQL básicos</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
         <div class="project-card">
           <div class="project-label"></div>
           <div class="project-title">
@@ -999,20 +998,23 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://courses.getdbt.com/courses/fundamentals" target="_blank">dbt Labs — dbt Fundamentals (certificado gratuito)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=toSAAgLUHuk" target="_blank">Jayzern — dbt Tutorial Completo (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Delta Lake & Data Lakehouse</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://docs.getdbt.com/docs/introduction" target="_blank">dbt Docs — Documentación oficial completa</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.getdbt.com/analytics-engineering/modular-data-modeling-technique/" target="_blank">dbt — Modular Data Modeling Technique</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/what-exactly-is-dbt-47ba57309068" target="_blank">Towards Data Science — ¿Qué es exactamente dbt?</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">ACID transactions en data lakes, versioning, time travel, merge operations (UPSERT). La base de la arquitectura Lakehouse. Medallion architecture: Bronze → Silver → Gold.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/training/delta-lake-fundamentals" target="_blank">Databricks — Delta Lake Fundamentals (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=BMO90DWnLNc" target="_blank">Advancing Analytics — Delta Lake Deep Dive</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://delta.io/learn/tutorials/" target="_blank">Delta Lake — Tutorials oficiales</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html" target="_blank">Databricks Blog — Unpacking the Delta Lake Transaction Log</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/delta-lake-the-definitive-guide-e9b8816e2a8f" target="_blank">Towards Data Science — Delta Lake: The Definitive Guide</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
           </div>
           <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
@@ -1028,6 +1030,12 @@
             <div class="resources">
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank">freeCodeCamp — Git & GitHub (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git — Scott Chacon (libro completo gratuito online)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://docs.github.com/en/get-started/quickstart/hello-world" target="_blank">GitHub Docs — Hello World: intro oficial a GitHub</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://realpython.com/python-git-github-intro/" target="_blank">Real Python — Git & GitHub para proyectos de Python</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
           </div>
           <div class="topic-estimate"><div class="estimate-weeks">1</div><div class="estimate-label">semana</div></div>
         </div>
@@ -1042,6 +1050,12 @@
             <div class="resources">
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/certification/data-engineer-associate" target="_blank">Databricks — Data Engineer Associate Exam (~$200)</a><span class="resource-tag tag-paid">$200</span><span class="resource-tag tag-cert">Cert</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=iF25bM0HWYE" target="_blank">Prep: Databricks Associate Study Guide (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/learn/certification/data-engineer-associate#exam-guide" target="_blank">Databricks — Official Exam Study Guide (completo)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://medium.com/@suffyan.asad1/my-journey-to-the-databricks-certified-data-engineer-associate-exam-tips-resources-7a8c0fefbe4d" target="_blank">Medium — Tips y experiencia del examen Databricks Associate</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://community.databricks.com/t5/data-engineering/ct-p/data-engineering" target="_blank">Databricks Community — Foro de Data Engineering (dudas reales)</a><span class="resource-tag tag-read">Comunidad</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
           </div>
           <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
@@ -1093,15 +1107,13 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/learn/intermediate-machine-learning" target="_blank">Kaggle — Intermediate ML (certificado gratis)</a><span class="resource-tag tag-cert">Cert</span><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=7eh4d6sabA0" target="_blank">Patrick Loeber — ML con scikit-learn (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">LLMs & AI para Análisis de Datos</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.statlearning.com/" target="_blank">An Introduction to Statistical Learning — James et al. (PDF gratis)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://scikit-learn.org/stable/user_guide.html" target="_blank">scikit-learn — User Guide oficial (la referencia)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/machine-learning-for-data-analysts-101-4a18cedb8bd0" target="_blank">Towards Data Science — ML para analistas de datos (no para ML engineers)</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1098125975" target="_blank">Hands-On ML with Scikit-Learn — Aurélien Géron (cap. 1–8)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-paid">~$50</span></div>
+            </div>
             </div>
             <p class="topic-desc">Usar LLMs (GPT, Claude) para generar SQL/Python, analizar datasets con lenguaje natural, crear reportes automáticos y construir agentes de análisis. Prompt engineering para analistas de datos.</p>
             <div class="resources">
@@ -1109,26 +1121,25 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/" target="_blank">DeepLearning.AI — LangChain (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=sTeoEFzVNSc" target="_blank">Alejandro AO — AI Data Analyst Agent (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Databricks AI & MLflow</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.promptingguide.ai/" target="_blank">Prompt Engineering Guide — guía completa y gratuita</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/using-chatgpt-as-a-data-analyst-f7a6b3e4e2a0" target="_blank">Towards Data Science — Usando LLMs como analista de datos</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://python.langchain.com/docs/introduction/" target="_blank">LangChain Docs — Documentación oficial (cómo construir agentes)</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/blog/llm-analytics-what-it-means-data-practitioners" target="_blank">Databricks Blog — LLMs para analistas: qué significa en la práctica</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Databricks AutoML, Feature Store, MLflow para tracking de experimentos y reproducibilidad, Model Registry. Cómo integrar modelos de ML dentro de pipelines de datos en Databricks.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.databricks.com/learn/training/machine-learning-foundations" target="_blank">Databricks — ML Foundations (gratis)</a><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=JApPzAnbfPI" target="_blank">Databricks — MLflow Tutorial (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">2</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <!-- PROJECT 5 -->
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://mlflow.org/docs/latest/index.html" target="_blank">MLflow Docs — Documentación oficial completa</a><span class="resource-tag tag-read">Docs</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/mlflow-part-1-getting-started-with-mlflow-8b45bfbbb334" target="_blank">Towards Data Science — Empezando con MLflow (guía práctica)</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/product/managed-mlflow" target="_blank">Databricks — MLflow gestionado: qué agrega Databricks</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
         <div class="project-card">
           <div class="project-label"></div>
           <div class="project-title">
@@ -1172,26 +1183,24 @@
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.kaggle.com/datasets" target="_blank">Kaggle Datasets — Elige un dataset con significado para ti</a><span class="resource-tag tag-free">Gratis</span></div>
               <div class="resource"><span class="resource-icon">▶</span><a href="https://www.youtube.com/watch?v=GzALePeIRHQ" target="_blank">Darshil Parmar — Data Engineering Project E2E (YouTube)</a><span class="resource-tag tag-yt">YT</span><span class="resource-tag tag-free">Gratis</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">5</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <div class="topic">
-          <div>
-            <div class="topic-header">
-              <div class="topic-check" onclick="toggleCheck(this)"></div>
-              <span class="topic-name">Certificaciones de Cierre</span>
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.amazon.com/Fundamentals-Data-Engineering-Robust-Systems/dp/1098108302" target="_blank">Fundamentals of Data Engineering — Reis & Housley (O'Reilly)</a><span class="resource-tag tag-read">Libro</span><span class="resource-tag tag-paid">~$50</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.databricks.com/blog/2022/08/29/best-practices-for-building-production-data-pipelines-on-databricks.html" target="_blank">Databricks Blog — Best Practices para pipelines en producción</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/how-to-write-an-awesome-readme-68bf4be91f8b" target="_blank">Towards Data Science — Cómo escribir un README impresionante</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
             </div>
             <p class="topic-desc">Google Data Analytics Professional Certificate como credencial reconocida para LinkedIn. Opcional pero añade peso a tu perfil si buscas nuevas oportunidades laborales.</p>
             <div class="resources">
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank">Google Data Analytics Certificate (Coursera ~$50/mes)</a><span class="resource-tag tag-paid">~$50</span><span class="resource-tag tag-cert">Cert</span></div>
               <div class="resource"><span class="resource-icon">◉</span><a href="https://www.coursera.org/professional-certificates/ibm-data-analyst" target="_blank">IBM Data Analyst Professional Certificate (audit gratis)</a><span class="resource-tag tag-free">Gratis*</span></div>
             </div>
-          </div>
-          <div class="topic-estimate"><div class="estimate-weeks">3</div><div class="estimate-label">semanas</div></div>
-        </div>
-
-        <!-- PROJECT 6 -->
+            <div class="readings-label">Lecturas recomendadas</div>
+            <div class="resources">
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://towardsdatascience.com/how-to-build-a-data-science-portfolio-5f566517c79c" target="_blank">Towards Data Science — Cómo construir un portfolio de datos que consigue trabajo</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.linkedin.com/pulse/how-optimize-your-linkedin-profile-data-analyst-roles-/" target="_blank">LinkedIn — Cómo optimizar tu perfil para roles de datos</a><span class="resource-tag tag-read">Artículo</span><span class="resource-tag tag-free">Gratis</span></div>
+              <div class="resource"><span class="resource-icon">📖</span><a href="https://www.levels.fyi/blog/data-engineer-salary.html" target="_blank">levels.fyi — Salarios de Data Engineer 2025 (para saber tu valor)</a><span class="resource-tag tag-read">Referencia</span><span class="resource-tag tag-free">Gratis</span></div>
+            </div>
         <div class="project-card">
           <div class="project-label"></div>
           <div class="project-title">
